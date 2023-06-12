@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class G7_ListNode : MonoBehaviour
+public class G7_BlockBG : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class G7_Node : MonoBehaviour
 {
-   
+
     public typeNode statusNode;
     public Vector3 cellPos;
     public Tile obj;
-    public G7_Node(typeNode statusNode, Tile obj = null)
+    public G7_Node(typeNode statusNode, Tile obj)
     {
         this.statusNode = statusNode;
         //  this.cellPos = cellPos;
-        this.obj = obj;
+        if (obj != null)
+            this.obj = obj;
     }
     public typeNode checkNode()
     {

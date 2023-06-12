@@ -33,7 +33,7 @@ public class G7_Block : MonoBehaviour
     {
 
         List<Tile> tile = childBlock.tiles.Where(x => x.row == row && x.col == col).ToList();
-        if (tile.Count > 0 && tile != null)
+        if (tile.Count > 0 && tile != null && tile[0].gameObject.activeInHierarchy)
         {
             nodeBlock[row, col] = new G7_Node(typeNode.empty, tile[0]);
             numberBlockChild++;
@@ -41,7 +41,7 @@ public class G7_Block : MonoBehaviour
             return;
         }
 
-        nodeBlock[row, col] = new G7_Node(typeNode.none);
+        nodeBlock[row, col] = new G7_Node(typeNode.none, null);
     }
 
 }

@@ -12,16 +12,18 @@ public class G7_MoveBlock : MonoBehaviour
     public int posCol, posRow;
     public int newPosCol, newPosRow;
     protected Vector3Int currentPos;
- 
+
+    public G7_Pieces G7_Pieces;
     private void Awake()
     {
+        G7_Pieces = GetComponentInParent<G7_Pieces>();
         block = GetComponent<G7_Block>();
         collider = GetComponent<Collider>();
     }
     private void OnMouseDown()
     {
         currenMoveBlock = this;
-        currentPos = getTransform();
+      //  currentPos = getTransform();
         G7_GameController.instance.RemoveObject(currenMoveBlock);
 
     }
@@ -35,21 +37,23 @@ public class G7_MoveBlock : MonoBehaviour
         {
             if (G7_GameController.instance.CheckBoard(currenMoveBlock))
             {
-                currentPos = getTransform();
+             //   currentPos = getTransform();
                 G7_GameController.instance.AddObject(currenMoveBlock);
             }
             else
             {
-                newPosCol = Mathf.RoundToInt(currentPos.x);
-                newPosRow = Mathf.RoundToInt(currentPos.z);
-                setTransform();
+                transform.localPosition = Vector3.zero;
+                //newPosCol = Mathf.RoundToInt(currentPos.x);
+                //newPosRow = Mathf.RoundToInt(currentPos.z);
+                //setTransform();
             }
 
         }
+      //  transform.localPosition = Vector3.zero;
         currenMoveBlock = null;
 
     }
-   
+
 
     public void setTransform()
     {

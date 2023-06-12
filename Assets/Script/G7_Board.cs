@@ -135,9 +135,13 @@ public class G7_Board : G7_Block
             {
                 this.nodeBlock[i + moveBlock.posRow, j + moveBlock.posCol].statusNode = typeNode.full;
             }
-        moveBlock.transform.position -= G7_GameController.instance.offset;
+
+
+        moveBlock.G7_Pieces.addTileBoard(TilesSuggest);
+        TilesSuggest.Clear();
         games.Add(moveBlock);
     }
+
     public void RemoveObject(G7_MoveBlock moveBlock)
     {
         G7_Node[,] node = moveBlock.block.nodeBlock;
@@ -145,10 +149,9 @@ public class G7_Board : G7_Block
         for (int i = 0; i < node.GetLength(0); i++)
             for (int j = 0; j < node.GetLength(1); j++)
             {
-
                 this.nodeBlock[i + moveBlock.posRow, j + moveBlock.posCol].statusNode = typeNode.empty;
-
             }
+        moveBlock.G7_Pieces.removeTileBoard();
         games.Remove(moveBlock);
     }
 }
