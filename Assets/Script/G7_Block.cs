@@ -43,5 +43,16 @@ public class G7_Block : MonoBehaviour
 
         nodeBlock[row, col] = new G7_Node(typeNode.none, null);
     }
+    public void ShowBlock(bool values)
+    {
+        for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < col; j++)
+            {
+
+                nodeBlock[i, j].obj.gameObject.SetActive(values);
+            }
+        }
+    }
 
 }

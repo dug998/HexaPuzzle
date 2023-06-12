@@ -75,4 +75,8 @@ public class G7_GameController : MonoBehaviour
     {
         Board.CheckVisibleSuggest(moveBlock);
     }
+    public void WinGame()
+    {
+        Debug.Log("win game");
+    }
 }

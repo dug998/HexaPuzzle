@@ -24,7 +24,8 @@ public class G7_Pieces : MonoBehaviour
         {
             x.VisibleSuggest(true);
         }
-        BlockMove.SetActive(false);
+       
+        G7_MoveBlock.hideBlock();
     }
     public void removeTileBoard()
     {
@@ -37,7 +38,7 @@ public class G7_Pieces : MonoBehaviour
             tile.VisibleSuggest(false);
         }
         TileBoard.Clear();
-        BlockMove.SetActive(true);
+        G7_MoveBlock.showBlock();
     }
 
 }

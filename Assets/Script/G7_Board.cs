@@ -73,7 +73,7 @@ public class G7_Board : G7_Block
                 {
                     break;
                 }
-                Debug.Log(row + "__" + col);
+
                 AddTileSuggest(this.nodeBlock[row, col].obj, index);
             }
         }
@@ -129,21 +129,41 @@ public class G7_Board : G7_Block
 
     public void AddObject(G7_MoveBlock moveBlock)
     {
+        int count = 0;
         G7_Node[,] node = moveBlock.block.nodeBlock;
         for (int i = 0; i < node.GetLength(0); i++)
             for (int j = 0; j < node.GetLength(1); j++)
             {
                 this.nodeBlock[i + moveBlock.posRow, j + moveBlock.posCol].statusNode = typeNode.full;
+                count++;
             }
 
-
+        Debug.Log(count);
         moveBlock.G7_Pieces.addTileBoard(TilesSuggest);
         TilesSuggest.Clear();
         games.Add(moveBlock);
+        CheckWinGame();
     }
+    public void CheckWinGame()
+    {
+        for (int i = 0; i < this.nodeBlock.GetLength(0); i++)
+            for (int j = 0; j < this.nodeBlock.GetLength(1); j++)
+            {
+                if (this.nodeBlock[i, j].statusNode == typeNode.empty)
+                {
+                    Debug.Log(i + "__" + j);
+                    return;
+                }
+            }
 
+        G7_GameController.instance.WinGame();
+
+    }
     public void RemoveObject(G7_MoveBlock moveBlock)
     {
+        if (!games.Contains(moveBlock))
+            return;
+
         G7_Node[,] node = moveBlock.block.nodeBlock;
 
         for (int i = 0; i < node.GetLength(0); i++)

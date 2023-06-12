@@ -23,7 +23,7 @@ public class G7_MoveBlock : MonoBehaviour
     private void OnMouseDown()
     {
         currenMoveBlock = this;
-      //  currentPos = getTransform();
+        //  currentPos = getTransform();
         G7_GameController.instance.RemoveObject(currenMoveBlock);
 
     }
@@ -37,7 +37,7 @@ public class G7_MoveBlock : MonoBehaviour
         {
             if (G7_GameController.instance.CheckBoard(currenMoveBlock))
             {
-             //   currentPos = getTransform();
+                //   currentPos = getTransform();
                 G7_GameController.instance.AddObject(currenMoveBlock);
             }
             else
@@ -49,7 +49,7 @@ public class G7_MoveBlock : MonoBehaviour
             }
 
         }
-      //  transform.localPosition = Vector3.zero;
+        //  transform.localPosition = Vector3.zero;
         currenMoveBlock = null;
 
     }
@@ -68,5 +68,13 @@ public class G7_MoveBlock : MonoBehaviour
     public Vector3Int getTransform()
     {
         return Vector3Int.RoundToInt(transform.position);
+    }
+    public void showBlock()
+    {
+        block.ShowBlock(true);
+    }
+    public void hideBlock()
+    {
+        block.ShowBlock(false);
     }
 }
