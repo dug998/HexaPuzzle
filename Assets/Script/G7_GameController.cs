@@ -39,7 +39,7 @@ public class G7_GameController : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, layerMask))
         {
-            mousePos = hit.collider.gameObject.GetComponent<Tile>().getSize();
+            mousePos = hit.collider.gameObject.GetComponent<Tilesss>().getSize();
             mousePos.y = 0;
 
 

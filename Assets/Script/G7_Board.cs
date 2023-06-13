@@ -7,7 +7,7 @@ using UnityEngine;
 public class G7_Board : G7_Block
 {
     public List<G7_MoveBlock> games;
-    public List<Tile> TilesSuggest;
+    public List<Tilesss> TilesSuggest;
     public bool CheckBoard(G7_MoveBlock moveBlock)
     {
         G7_Node[,] node = moveBlock.block.nodeBlock;
@@ -36,7 +36,7 @@ public class G7_Board : G7_Block
                     return false;
                 }
 
-                if (this.nodeBlock[row, col].statusNode == typeNode.full || this.nodeBlock[row, col].statusNode == typeNode.none)
+                if ((this.nodeBlock[row, col].statusNode == typeNode.full || this.nodeBlock[row, col].statusNode == typeNode.none) )
                     return false;
             }
 
@@ -69,7 +69,7 @@ public class G7_Board : G7_Block
                     break;
                 }
 
-                if (this.nodeBlock[row, col].statusNode == typeNode.full || this.nodeBlock[row, col].statusNode == typeNode.none)
+                if ((this.nodeBlock[row, col].statusNode == typeNode.full || this.nodeBlock[row, col].statusNode == typeNode.none))
                 {
                     break;
                 }
@@ -98,7 +98,7 @@ public class G7_Board : G7_Block
             HideVisibleSuggest();
             return;
         }
-        foreach (Tile tile in TilesSuggest)
+        foreach (Tilesss tile in TilesSuggest)
         {
             tile.VisibleSuggest(true);
         }
@@ -110,14 +110,14 @@ public class G7_Board : G7_Block
         {
             return;
         }
-        foreach (Tile tile in TilesSuggest)
+        foreach (Tilesss tile in TilesSuggest)
         {
             tile.VisibleSuggest(false);
         }
         TilesSuggest.Clear();
 
     }
-    public void AddTileSuggest(Tile tile, int index)
+    public void AddTileSuggest(Tilesss tile, int index)
     {
         tile.index = index;
         if (TilesSuggest.Contains(tile))

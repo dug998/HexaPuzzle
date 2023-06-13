@@ -10,9 +10,11 @@ public class G7_Pieces : MonoBehaviour
     [Header("Block BackGround")]
     public G7_BlockBG G7_BlockBg;
 
-    public List<Tile> TileBoard = new List<Tile>();
-
-    public void addTileBoard(List<Tile> tile)
+    public List<Tilesss> TileBoard = new List<Tilesss>();
+    [Header("Generator")]
+    public TileGenerator _TileGenerator;
+    public GameObject tile;
+    public void addTileBoard(List<Tilesss> tile)
     {
         TileBoard.Clear();
         TileBoard.AddRange(tile);
@@ -20,11 +22,11 @@ public class G7_Pieces : MonoBehaviour
         {
             return;
         }
-        foreach (Tile x in TileBoard)
+        foreach (Tilesss x in TileBoard)
         {
             x.VisibleSuggest(true);
         }
-       
+
         G7_MoveBlock.hideBlock();
     }
     public void removeTileBoard()
@@ -33,12 +35,16 @@ public class G7_Pieces : MonoBehaviour
         {
             return;
         }
-        foreach (Tile tile in TileBoard)
+        foreach (Tilesss tile in TileBoard)
         {
             tile.VisibleSuggest(false);
         }
         TileBoard.Clear();
         G7_MoveBlock.showBlock();
+    }
+    public void Generator(int row, int col, bool[,] action)
+    {
+        _TileGenerator.GenerateGrid(tile, row, col, action);
     }
 
 }
