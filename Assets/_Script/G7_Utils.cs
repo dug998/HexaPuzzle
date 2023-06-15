@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class G7_Utils 
+public class G7_Utils
 {
     public static List<T> BuildListFromString<T>(string values, char split = '|')
     {
@@ -19,5 +19,10 @@ public class G7_Utils
             list.Add(val);
         }
         return list;
+
+    }
+    public static bool IsMakingLevel()
+    {
+        return G7_MakeLevelManager.instance != null;
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
-public class G7_LevelPref : MonoBehaviour
+public class G7_LevelPref 
 {
     public List<G7_PiecePrefs> piecesPrefs;
 }

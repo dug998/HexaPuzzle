@@ -6,6 +6,6 @@ public class G7_PrefData : MonoBehaviour
 {
     public static string GetLevelData(int world, int level)
     {
-        return PlayerPrefs.GetString("level_data_" + world + "_" + level);
+        return PlayerPrefs.GetString("level_data_" + world + "_" + level, null);
     }
 }
